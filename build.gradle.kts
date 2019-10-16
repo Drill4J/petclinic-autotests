@@ -30,6 +30,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
+    systemProperty("petclinic.url", System.getProperty("petclinic.url"))
     val agentPath = System.getProperty("agentPath")
     val adminUrl = System.getProperty("admin.url")
     val adminId = System.getProperty("agent.id")
