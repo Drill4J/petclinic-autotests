@@ -6,13 +6,14 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FirstTest {
 
-    lateinit var petclinicUrl: String
+    var petclinicUrl: String = "http://ecse005002a2.epam.com:8082"
 
-    @BeforeAll
+    //TODO need to fix getting petclinic url in pipeline
+/*    @BeforeAll
     fun before() {
         val propUrl = System.getProperty("petclinicUrl", "localhost:8082")
         petclinicUrl = "http://$propUrl"
-    }
+    }*/
 
     @Test
     fun getOwner4InfoPage() {
