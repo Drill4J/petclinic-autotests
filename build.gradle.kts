@@ -7,14 +7,32 @@ plugins {
 group = "com.epam.epm-d4j"
 version = "1.0-SNAPSHOT"
 
+val jUnitVersion = "5.4.0"
+val restAssuredVersion = "4.0.0"
+
 repositories {
     mavenCentral()
+    mavenLocal()
+    jcenter()
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("io.rest-assured:rest-assured:$restAssuredVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
+    testRuntime("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+tasks.named<Test>("test") {
+    useJUnitPlatform()
+    val agentPath = System.getProperty("agentPath")
+    val adminUrl = System.getProperty("admin.url")
+    val adminId = System.getProperty("agent.id")
+    val pluginId = System.getProperty("plugin.id")
+    jvmArgs("-javaagent:$agentPath=adminUrl=$adminUrl,agentId=$adminId,pluginId=$pluginId")
 }
