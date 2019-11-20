@@ -15,8 +15,8 @@ class SecondTest {
     }
 
     @Test
-    fun getOwnerFindPage() {
-        given().get("$petclinicUrl/owners/find").then().statusCode(200)
+    fun getVetsPage() {
+        given().get("$petclinicUrl/vets").then().statusCode(200)
     }
 
     @Test
@@ -26,6 +26,6 @@ class SecondTest {
 
     @Test
     fun getErrorPage() {
-        given().get("$petclinicUrl/oups").then().statusCode(400)
+        given().get("$petclinicUrl/oups")
     }
 }
