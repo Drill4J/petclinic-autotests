@@ -16,16 +16,16 @@ class SecondTest {
 
     @Test
     fun getOwnerFindPage() {
-        given().get("$petclinicUrl/owners/find")
+        given().get("$petclinicUrl/owners/find").then().statusCode(200)
     }
 
     @Test
     fun getHomePage() {
-        given().get("$petclinicUrl/")
+        given().get("$petclinicUrl/").then().statusCode(200)
     }
 
     @Test
     fun getErrorPage() {
-        given().get("$petclinicUrl/oups")
+        given().get("$petclinicUrl/oups").then().statusCode(400)
     }
 }
