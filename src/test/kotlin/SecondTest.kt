@@ -21,7 +21,7 @@ class SecondTest {
 
     @Test
     fun getHomePage() {
-        given().get("$petclinicUrl/").then().statusCode(200)
+        given().get("$petclinicUrl/")
     }
 
     @Test
