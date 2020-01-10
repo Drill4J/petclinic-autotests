@@ -1,4 +1,4 @@
-import io.restassured.RestAssured.given
+/*import io.restassured.RestAssured.given
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -28,4 +28,4 @@ class SecondTest {
     fun getErrorPage() {
         given().get("$petclinicUrl/oups")
     }
-}
+}*/

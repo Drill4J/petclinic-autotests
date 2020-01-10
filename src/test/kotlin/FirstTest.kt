@@ -1,3 +1,4 @@
+/*
 import io.restassured.RestAssured.given
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -23,4 +24,4 @@ class FirstTest {
     fun getOwner4EditPage() {
         given().get("$petclinicUrl/owners/4/edit").then().statusCode(200)
     }
-}
+}*/
