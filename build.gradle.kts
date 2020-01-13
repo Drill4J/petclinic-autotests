@@ -33,7 +33,7 @@ tasks.named<Test>("test") {
     systemProperty("petclinic.url", System.getProperty("petclinic.url"))
     val agentPath = System.getProperty("agentPath")
     val adminUrl = System.getProperty("admin.url")
-    val adminId = System.getProperty("agent.id")
+    val agentId = System.getProperty("agent.id")
     val pluginId = System.getProperty("plugin.id")
-    jvmArgs("-javaagent:$agentPath=adminUrl=$adminUrl,agentId=$adminId,pluginId=$pluginId")
+    jvmArgs("-javaagent:$agentPath=adminUrl=$adminUrl,agentId=$agentId,pluginId=$pluginId")
 }
