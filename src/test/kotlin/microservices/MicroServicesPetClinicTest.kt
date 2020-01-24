@@ -20,9 +20,9 @@ class MicroServicesPetClinicTest {
     fun createNewVisitTest() {
         given()
             .contentType("application/json")
-            .body("{\"date\":\"2020-01-01\",\"description\":\"autotest visit\"}")
+            .body("{\"date\":\"2024-01-01\",\"description\":\"autotest visit\"}")
             .`when`()
-            .post("$petclinicUrl/api/visit/owners/1/pets/1/visits")
+            .post("$petclinicUrl/api/visit/owners/2/pets/2/visits")
             .then()
             .statusCode(204)
     }
