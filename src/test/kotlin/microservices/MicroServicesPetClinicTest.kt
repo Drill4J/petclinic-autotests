@@ -12,7 +12,7 @@ class MicroServicesPetClinicTest {
 
     @BeforeAll
     fun before() {
-        val propUrl = System.getProperty("petclinic.url", "localhost:8082")
+        val propUrl = System.getProperty("petclinicUrl", "localhost:8082")
         petclinicUrl = "http://$propUrl"
     }
 

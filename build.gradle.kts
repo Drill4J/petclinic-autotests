@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.50"
+    id("com.epam.drill.agent.runner.autotest") version ("0.1.2")
 }
 
 group = "com.epam.epm-d4j"
@@ -28,13 +29,18 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+drill {
+    version = "0.1.4"
+    adminHost = System.getProperty("adminHost")
+    if (System.getProperty("groupId") != null) {
+        groupId = System.getProperty("groupId")
+    } else {
+        agentId = System.getProperty("agentId")
+    }
+    adminPort = 8090
+}
+
 tasks.named<Test>("test") {
     useJUnitPlatform()
-    systemProperty("petclinic.url", System.getProperty("petclinic.url"))
-    val agentPath = System.getProperty("agentPath")
-    val adminUrl = System.getProperty("admin.url")
-    val agentId = System.getProperty("agent.id")
-    val pluginId = System.getProperty("plugin.id")
-    val serviceGroupId = System.getProperty("serviceGroup.id")
-    jvmArgs("-javaagent:$agentPath=adminUrl=$adminUrl,agentId=$agentId,pluginId=$pluginId,serviceGroupId=$serviceGroupId")
+    systemProperty("petclinicUrl", System.getProperty("petclinicUrl"))
 }
