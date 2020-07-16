@@ -24,7 +24,7 @@ dependencies {
     implementation("io.rest-assured:rest-assured:$restAssuredVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-params:$jUnitVersion")
+    testCompile("org.junit.jupiter:junit-jupiter-params:$jUnitVersion")
 }
 
 tasks.withType<KotlinCompile> {

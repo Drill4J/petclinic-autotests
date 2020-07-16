@@ -1,8 +1,9 @@
 package ui
 
-import com.codeborne.selenide.Condition
+import com.codeborne.selenide.Condition.text
 import com.codeborne.selenide.Configuration
-import com.codeborne.selenide.Selenide
+import com.codeborne.selenide.Selenide.`$x`
+import com.codeborne.selenide.Selenide.open
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -24,7 +25,7 @@ class SelenideChromeUITest {
 
     @BeforeEach
     fun before() {
-        Selenide.open(petclinicUrl)
+        open(petclinicUrl)
     }
 
     @DisplayName("Params test on Chrome browser")
@@ -36,7 +37,7 @@ class SelenideChromeUITest {
         "trigger a RuntimeException to see how it is handled,Something happened..."
     )
     fun checkPageHeaderJunit5(tabTitle: String, expectedHeader: String) {
-        Selenide.`$x`("//a[@title='$tabTitle']").click()
-        Selenide.`$x`("//h2").shouldHave(Condition.text(expectedHeader))
+        `$x`("//a[@title='$tabTitle']").click()
+        `$x`("//h2").shouldHave(text(expectedHeader))
     }
 }
