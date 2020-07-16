@@ -40,6 +40,11 @@ drill {
         agentId = System.getProperty("agentId")
     }
     adminPort = 8090
+    additionalParams = mutableMapOf(
+        "sessionId" to "testSession",
+        "browserProxyAddress" to "$adminHost:7777"
+    )
+    logLevel = com.epam.drill.agent.runner.LogLevels.TRACE
 }
 
 tasks.named<Test>("test") {
