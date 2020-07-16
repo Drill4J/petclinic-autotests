@@ -8,7 +8,7 @@ plugins {
 group = "com.epam.epm-d4j"
 version = "1.0-SNAPSHOT"
 
-val jUnitVersion = "5.4.0"
+val jUnitVersion = "5.6.2"
 val restAssuredVersion = "4.0.0"
 
 repositories {
