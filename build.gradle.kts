@@ -8,7 +8,7 @@ plugins {
 group = "com.epam.epm-d4j"
 version = "1.0-SNAPSHOT"
 
-val jUnitVersion = "5.4.0"
+val jUnitVersion = "5.5.0"
 val restAssuredVersion = "4.0.0"
 
 repositories {
@@ -31,12 +31,8 @@ tasks.withType<KotlinCompile> {
 
 drill {
     version = "0.3.0"
-    adminHost = System.getProperty("adminHost")
-    if (System.getProperty("groupId") != null) {
-        groupId = System.getProperty("groupId")
-    } else {
-        agentId = System.getProperty("agentId")
-    }
+    adminHost = "ecse0050029e.epam.com"
+    agentId = "test-pet-standalone"
     adminPort = 8090
 }
 
