@@ -1,4 +1,4 @@
-package standalone
+package api.standalone
 
 import io.restassured.RestAssured.given
 import org.junit.jupiter.api.BeforeAll
@@ -12,8 +12,7 @@ class StandalonePetClinicTest {
 
     @BeforeAll
     fun before() {
-        val propUrl = System.getProperty("petclinicUrl", "localhost:8082")
-        petclinicUrl = "http://$propUrl"
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
     }
 
     @Test

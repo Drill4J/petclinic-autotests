@@ -10,6 +10,7 @@ version = "1.0-SNAPSHOT"
 
 val jUnitVersion = "5.6.2"
 val restAssuredVersion = "4.0.0"
+val selenideVersion = "5.13.0"
 
 repositories {
     mavenCentral()
@@ -19,17 +20,18 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("com.codeborne:selenide:$selenideVersion")
     implementation("io.rest-assured:rest-assured:$restAssuredVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
-    testRuntime("org.junit.jupiter:junit-jupiter-api:$jUnitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jUnitVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-params:$jUnitVersion")
 }
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-drill {
+/*drill {
     version = "0.3.0"
     adminHost = System.getProperty("adminHost")
     if (System.getProperty("groupId") != null) {
@@ -38,7 +40,7 @@ drill {
         agentId = System.getProperty("agentId")
     }
     adminPort = 8090
-}
+}*/
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
