@@ -31,7 +31,7 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-/*drill {
+drill {
     version = "0.3.0"
     adminHost = System.getProperty("adminHost")
     if (System.getProperty("groupId") != null) {
@@ -40,7 +40,7 @@ tasks.withType<KotlinCompile> {
         agentId = System.getProperty("agentId")
     }
     adminPort = 8090
-}*/
+}
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
