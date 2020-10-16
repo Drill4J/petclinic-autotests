@@ -33,8 +33,7 @@ class SelenideChromeUITest {
     @CsvSource(
         "home page,Welcome",
         "find owners,Find Owners",
-        "veterinarians,Veterinarians",
-        "trigger a RuntimeException to see how it is handled,Something happened..."
+        "veterinarians,Veterinarians"
     )
     fun checkPageHeaderJunit5(tabTitle: String, expectedHeader: String) {
         `$x`("//a[@title='$tabTitle']").click()
