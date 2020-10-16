@@ -2,6 +2,7 @@ package api.standalone
 
 import io.restassured.RestAssured.given
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
@@ -36,6 +37,7 @@ class StandalonePetClinicTest {
         given().get("$petclinicUrl/")
     }
 
+    @Disabled
     @Test
     fun getErrorPage() {
         given().get("$petclinicUrl/oups")
