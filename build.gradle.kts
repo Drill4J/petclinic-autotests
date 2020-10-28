@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.50"
-    id("com.epam.drill.agent.runner.autotest") version ("0.1.6")
+    id("com.epam.drill.agent.runner.autotest") version ("0.2.0")
 }
 
 group = "com.epam.epm-d4j"
@@ -32,7 +32,7 @@ tasks.withType<KotlinCompile> {
 }
 
 drill {
-    version = "0.8.2"
+    version = "0.9.1"
     adminHost = System.getProperty("adminHost")
     if (System.getProperty("groupId") != null) {
         groupId = System.getProperty("groupId")
