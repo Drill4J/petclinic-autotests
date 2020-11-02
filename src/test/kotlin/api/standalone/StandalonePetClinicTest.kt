@@ -1,6 +1,7 @@
 package api.standalone
 
 import io.restassured.RestAssured.given
+import jdk.nashorn.internal.ir.annotations.Ignore
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -27,6 +28,7 @@ class StandalonePetClinicTest {
     }
 
 
+    @Disabled
     @Test
     fun getVetsPage() {
         given().get("$petclinicUrl/vets")
