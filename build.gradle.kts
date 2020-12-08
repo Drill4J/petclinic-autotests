@@ -32,7 +32,7 @@ tasks.withType<KotlinCompile> {
 }
 
 drill {
-    version = "0.9.1"
+    version = "0.10.2"
     adminHost = System.getProperty("adminHost")
     if (System.getProperty("groupId") != null) {
         groupId = System.getProperty("groupId")
