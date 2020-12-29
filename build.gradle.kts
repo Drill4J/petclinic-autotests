@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.3.50"
-    id("com.epam.drill.agent.runner.autotest") version ("0.2.0")
+    id("com.epam.drill.agent.runner.autotest") version ("0.2.1")
 }
 
 group = "com.epam.epm-d4j"
