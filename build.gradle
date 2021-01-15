@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'com.epam.drill.agent.runner.autotest' version '0.2.1'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+}
+
+group 'com.epam.epm-d4j'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        apply plugin: 'java'
+        apply plugin: 'com.epam.drill.agent.runner.autotest'
+        apply plugin: 'org.jetbrains.kotlin.jvm'
+        testImplementation 'com.codeborne:selenide:5.17.4'
+        testImplementation 'io.rest-assured:rest-assured:4.3.3'
+        testImplementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.8.1'
+    }
+
+    drill {
+        version = System.getProperty("autotestAgentVersion") ?: "0.12.0"
+        agentId = System.getProperty("agentId") ?: "Petclinic"
+        adminHost = System.getProperty("adminHost") ?: "localhost"
+        adminPort = System.getProperty("adminPort") ?: 8090
+        logLevel = com.epam.drill.agent.runner.LogLevels.DEBUG
+        additionalParams = ["browserProxyAddress": "$adminHost:7777"]
+    }
+
+}
+
+task Alltest() {
+    dependsOn subprojects.test
+}

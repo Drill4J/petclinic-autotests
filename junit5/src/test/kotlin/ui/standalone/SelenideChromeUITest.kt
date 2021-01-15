@@ -1,4 +1,4 @@
-package ui
+package ui.standalone
 
 import com.codeborne.selenide.Condition.text
 import com.codeborne.selenide.Configuration
@@ -17,14 +17,14 @@ class SelenideChromeUITest {
     lateinit var petclinicUrl: String
 
     @BeforeAll
-    fun beforeAll() {
+    fun junit5BeforeAll() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
         Configuration.browserCapabilities.setCapability("enableVNC", true)
     }
 
     @BeforeEach
-    fun before() {
+    fun junit5Before() {
         open(petclinicUrl)
     }
 
@@ -35,7 +35,7 @@ class SelenideChromeUITest {
         "find owners,Find Owners",
         "veterinarians,Veterinarians"
     )
-    fun checkPageHeaderJunit5(tabTitle: String, expectedHeader: String) {
+    fun junit5CheckPageHeaderJunit5(tabTitle: String, expectedHeader: String) {
         `$x`("//a[@title='$tabTitle']").click()
         `$x`("//h2").shouldHave(text(expectedHeader))
     }

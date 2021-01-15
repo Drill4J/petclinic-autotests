@@ -1,4 +1,4 @@
-package ui
+package ui.standalone
 
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Configuration
@@ -12,7 +12,7 @@ class SelenideFireFoxUITest {
     lateinit var petclinicUrl: String
 
     @BeforeAll
-    fun beforeAll() {
+    fun junit5BeforeAll() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
         Configuration.browser = "firefox"
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
@@ -20,13 +20,13 @@ class SelenideFireFoxUITest {
     }
 
     @BeforeEach
-    fun before() {
+    fun junit5Before() {
         Selenide.open(petclinicUrl)
     }
 
     @DisplayName("Simple test 1 on FireFox browser")
     @Test
-    fun findOwnersTestSelenide() {
+    fun junit5FindOwnersTestSelenide() {
         Selenide.`$x`("//a[@title='find owners']").click()
         Selenide.`$`(By.id("lastName")).sendKeys("Davis")
         Selenide.`$x`("//button[@type='submit']").click()
@@ -34,7 +34,7 @@ class SelenideFireFoxUITest {
     }
 
     @Test
-    fun simpleTestOnFireFoxWithoutDisplayName() {
+    fun junit5SimpleTestOnFireFoxWithoutDisplayName() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
     }

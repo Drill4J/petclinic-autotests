@@ -1,0 +1,22 @@
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+}
+
+def suite1 = project.hasProperty("single")
+def suite2 = project.hasProperty("multi")
+
+test {
+    useTestNG() {
+
+        useDefaultListeners = true
+
+        if (suite1) {
+            suites 'src/test/resources/testng-standalone.xml'
+        }
+
+        if (suite2) {
+            suites 'src/test/resources/testng-microservices.xml'
+        }
+
+    }
+}

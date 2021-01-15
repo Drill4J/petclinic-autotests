@@ -7,3 +7,7 @@ pluginManagement {
 }
 rootProject.name = 'petclinic-autotests'
 
+include 'junit5'
+include 'junit4'
+include 'testng'
+

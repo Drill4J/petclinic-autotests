@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="StandaloneSuite">
+    <test name="StandaloneName">
+        <classes>
+            <class name="api.standalone.StandalonePetClinicTest"/>
+            <class name="ui.standalone.SelenideChromeUITest"/>
+            <class name="ui.standalone.SelenideFireFoxUITest"/>
+        </classes>
+    </test>
+</suite>

@@ -13,7 +13,7 @@ class MicroServicesPetClinicTest {
     lateinit var petclinicUrl: String
 
     @BeforeAll
-    fun before() {
+    fun junit5Before() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
         val urls = arrayListOf(
             "$petclinicUrl/api/visit/owners/2/pets/2/visits",
@@ -35,7 +35,7 @@ class MicroServicesPetClinicTest {
     }
 
     @Test
-    fun createNewVisitTest() {
+    fun junit5CreateNewVisitTest() {
         given()
             .contentType("application/json")
             .body("{\"date\":\"2024-01-01\",\"description\":\"autotest visit\"}")
@@ -44,7 +44,7 @@ class MicroServicesPetClinicTest {
     }
 
     @Test
-    fun updateOwnerInfoTest() {
+    fun junit5UpdateOwnerInfoTest() {
         given()
             .contentType("application/json")
             .body("{\"id\":1,\"firstName\":\"George\",\"lastName\":\"Franklin\",\"address\":\"110 W. Liberty St.\",\"city\":\"Autotest\",\"telephone\":\"6085551023\",\"pets\":[{\"id\":1,\"name\":\"Leo\",\"birthDate\":\"2010-09-07\",\"type\":{\"id\":1,\"name\":\"cat\"}}]}")
@@ -55,7 +55,7 @@ class MicroServicesPetClinicTest {
     }
 
     @Test
-    fun getVetsInfoTest() {
+    fun junit5GetVetsInfoTest() {
         given()
             .get("$petclinicUrl/api/vet/vets")
             .then()
