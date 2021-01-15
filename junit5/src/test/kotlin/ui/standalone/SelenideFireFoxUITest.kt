@@ -36,13 +36,13 @@ class SelenideFireFoxUITest {
 
     @Disabled
     @Test
-    fun junit5SimpleTestOnFireFoxWithoutDisplayName() {
+    fun junit5UiIgnoredTest() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
     }
 
     @Test
-    fun testNgUiIgnoredTest(){
+    fun junit5UiFailedTest(){
         assertTrue(false)
     }
 

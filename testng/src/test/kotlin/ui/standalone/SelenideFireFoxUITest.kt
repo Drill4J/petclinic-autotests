@@ -38,13 +38,13 @@ class SelenideFireFoxUITest {
 
     @Ignore
     @Test
-    fun testNgSimpleTestOnFireFoxWithoutDisplayName() {
+    fun testNgUiIgnoredTest() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
     }
 
     @Test
-    fun testNgUiIgnoredTest(){
+    fun testNgUiFailedTest(){
         assertTrue(false)
     }
 
