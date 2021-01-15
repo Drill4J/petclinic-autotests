@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.Selenide
 import org.junit.jupiter.api.*
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.openqa.selenium.By
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -33,10 +34,16 @@ class SelenideFireFoxUITest {
         Selenide.`$x`("//a[@href='/owners/2']").shouldHave(Condition.text("Betty Davis"))
     }
 
+    @Disabled
     @Test
     fun junit5SimpleTestOnFireFoxWithoutDisplayName() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
+    }
+
+    @Test
+    fun testNgUiIgnoredTest(){
+        assertTrue(false)
     }
 
 }

@@ -5,7 +5,10 @@ import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.Selenide
 
 import org.openqa.selenium.By
+import org.testng.AssertJUnit.assertTrue
 import org.testng.annotations.BeforeClass
+import org.testng.annotations.BeforeMethod
+import org.testng.annotations.Ignore
 import org.testng.annotations.Test
 
 class SelenideFireFoxUITest {
@@ -20,7 +23,7 @@ class SelenideFireFoxUITest {
         Configuration.browserCapabilities.setCapability("enableVNC", true)
     }
 
-    @BeforeClass
+    @BeforeMethod
     fun testNgBefore() {
         Selenide.open(petclinicUrl)
     }
@@ -33,10 +36,16 @@ class SelenideFireFoxUITest {
         Selenide.`$x`("//a[@href='/owners/2']").shouldHave(Condition.text("Betty Davis"))
     }
 
+    @Ignore
     @Test
     fun testNgSimpleTestOnFireFoxWithoutDisplayName() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
+    }
+
+    @Test
+    fun testNgUiIgnoredTest(){
+        assertTrue(false)
     }
 
 }

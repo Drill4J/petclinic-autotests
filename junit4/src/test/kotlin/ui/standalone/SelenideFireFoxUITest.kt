@@ -3,8 +3,10 @@ package ui.standalone
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.Selenide
+import junit.framework.Assert.assertTrue
 import org.junit.Before
 import org.junit.BeforeClass
+import org.junit.Ignore
 import org.junit.Test
 import org.openqa.selenium.By
 
@@ -39,10 +41,16 @@ class SelenideFireFoxUITest {
         Selenide.`$x`("//a[@href='/owners/2']").shouldHave(Condition.text("Betty Davis"))
     }
 
+    @Ignore
     @Test
     fun junit4SimpleTestOnFireFoxWithoutDisplayName() {
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
+    }
+
+    @Test
+    fun testNgUiIgnoredTest(){
+        assertTrue(false)
     }
 
 }
