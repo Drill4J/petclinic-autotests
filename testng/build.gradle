@@ -7,16 +7,13 @@ def suite2 = project.hasProperty("multi")
 
 test {
     useTestNG() {
-
+        systemProperties System.properties
         useDefaultListeners = true
-
         if (suite1) {
             suites 'src/test/resources/testng-standalone.xml'
         }
-
         if (suite2) {
             suites 'src/test/resources/testng-microservices.xml'
         }
-
     }
 }

@@ -4,5 +4,6 @@ dependencies {
 
 test {
     useJUnit()
+    systemProperties System.properties
 }
 
