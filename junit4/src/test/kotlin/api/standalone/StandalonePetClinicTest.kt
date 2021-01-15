@@ -5,18 +5,21 @@ import io.restassured.RestAssured.given
 import junit.framework.Assert.assertTrue
 import org.junit.BeforeClass
 import org.junit.Ignore
-import org.junit.Rule
 import org.junit.Test
 
 
 class StandalonePetClinicTest {
 
-    lateinit var petclinicUrl: String
 
-    @Rule
-    @BeforeClass
-    fun junit4Before() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+    companion object {
+
+        lateinit var petclinicUrl: String
+
+        @JvmStatic
+        @BeforeClass
+        fun junit4Before() {
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        }
     }
 
     @Test

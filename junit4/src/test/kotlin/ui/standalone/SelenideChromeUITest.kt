@@ -14,22 +14,17 @@ import org.junit.runners.Parameterized
 @RunWith(Parameterized::class)
 class SelenideChromeUITest(private var tabTitle: String, private var expectedHeader: String) {
 
-    lateinit var petclinicUrl: String
+    companion object{
+        lateinit var petclinicUrl: String
 
-    @Rule
-    @BeforeClass
-    fun junit4BeforeAll() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
-        Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
-        Configuration.browserCapabilities.setCapability("enableVNC", true)
-    }
+        @JvmStatic
+        @BeforeClass
+        fun junit4BeforeAll() {
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+            Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
+            Configuration.browserCapabilities.setCapability("enableVNC", true)
+        }
 
-    @Before
-    fun junit4Before() {
-        open(petclinicUrl)
-    }
-
-    companion object {
         @JvmStatic
         @Parameterized.Parameters
         fun data(): Collection<Array<Any>> {
@@ -40,6 +35,12 @@ class SelenideChromeUITest(private var tabTitle: String, private var expectedHea
                 arrayOf("trigger a RuntimeException to see how it is handled", "Something happened...")
             )
         }
+    }
+
+
+    @Before
+    fun junit4Before() {
+        open(petclinicUrl)
     }
 
     @Test

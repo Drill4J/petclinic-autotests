@@ -5,22 +5,25 @@ import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.Selenide
 import org.junit.Before
 import org.junit.BeforeClass
-import org.junit.Rule
 import org.junit.Test
-
 import org.openqa.selenium.By
 
 class SelenideFireFoxUITest {
 
-    lateinit var petclinicUrl: String
 
-    @Rule
-    @BeforeClass
-    fun junit4BeforeAll() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
-        Configuration.browser = "firefox"
-        Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
-        Configuration.browserCapabilities.setCapability("enableVNC", true)
+
+    companion object {
+
+        lateinit var petclinicUrl: String
+
+        @JvmStatic
+        @BeforeClass
+        fun junit4BeforeAll() {
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+            Configuration.browser = "firefox"
+            Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
+            Configuration.browserCapabilities.setCapability("enableVNC", true)
+        }
     }
 
     @Before

@@ -10,30 +10,35 @@ import java.net.ConnectException
 
 class MicroServicesPetClinicTest {
 
-    lateinit var petclinicUrl: String
+    companion object{
 
-    @Rule
-    @BeforeClass
-    fun junit4Before() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
-        val urls = arrayListOf(
-            "$petclinicUrl/api/visit/owners/2/pets/2/visits",
-            "$petclinicUrl/api/customer/owners",
-            "$petclinicUrl/api/vet/vets"
-        )
-        var isMcrPetReadyForTests = false
-        while (!isMcrPetReadyForTests) {
-            urls.forEach {
-                isMcrPetReadyForTests = try {
-                    given().`when`().get(it).then().extract().response().statusCode == 200
-                } catch (e: ConnectException) {
-                    false
+        lateinit var petclinicUrl: String
+
+        @JvmStatic
+        @BeforeClass
+        fun junit4Before() {
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+            val urls = arrayListOf(
+                "$petclinicUrl/api/visit/owners/2/pets/2/visits",
+                "$petclinicUrl/api/customer/owners",
+                "$petclinicUrl/api/vet/vets"
+            )
+            var isMcrPetReadyForTests = false
+            while (!isMcrPetReadyForTests) {
+                urls.forEach {
+                    isMcrPetReadyForTests = try {
+                        given().`when`().get(it).then().extract().response().statusCode == 200
+                    } catch (e: ConnectException) {
+                        false
+                    }
+                    sleep(3000)
+                    print("waiting for services...")
                 }
-                sleep(3000)
-                print("waiting for services...")
             }
         }
     }
+
+
 
     @Test
     fun junit4CreateNewVisitTest() {
