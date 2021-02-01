@@ -28,13 +28,9 @@ class SelenideFireFoxUITest {
         }
     }
 
-    @Before
-    fun junit4Before() {
-        Selenide.open(petclinicUrl)
-    }
-
     @Test
     fun junit4FindOwnersTestSelenide() {
+        Selenide.open(petclinicUrl)
         Selenide.`$x`("//a[@title='find owners']").click()
         Selenide.`$`(By.id("lastName")).sendKeys("Davis")
         Selenide.`$x`("//button[@type='submit']").click()
@@ -44,6 +40,7 @@ class SelenideFireFoxUITest {
     @Ignore
     @Test
     fun junit4UiIgnoredTest() {
+        Selenide.open(petclinicUrl)
         Selenide.`$x`("//a[@title='veterinarians']").click()
         Selenide.`$x`("//td").shouldHave(Condition.text("James Carter"))
     }
