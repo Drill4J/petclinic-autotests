@@ -24,7 +24,7 @@ allprojects {
     }
 
     drill {
-        version = System.getProperty("autotestAgentVersion") ?: "0.14.3"
+        version = System.getProperty("autotestAgentVersion") ?: "0.14.4"
         agentId = System.getProperty("agentId") ?: "Petclinic"
         adminHost = System.getProperty("adminHost") ?: "localhost"
         adminPort = System.getProperty("adminPort") ?: 8090
