@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="MicroSuite" thread-count="5" parallel="classes">
+<suite name="MicroSuite">
     <test name="MicroTest">
         <classes>
-            <class name="api.microservices.MicroServicesPetClinicTest"/>
+            <class name="api.microservices.McrApiTest"/>
+            <class name="ui.microservices.McrChromeUITest"/>
+            <class name="ui.microservices.McrFireFoxUITest"/>
         </classes>
     </test>
 </suite>

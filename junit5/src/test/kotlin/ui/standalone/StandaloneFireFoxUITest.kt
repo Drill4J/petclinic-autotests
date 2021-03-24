@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.openqa.selenium.By
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class SelenideFireFoxUITest {
+class StandaloneFireFoxUITest {
 
     lateinit var petclinicUrl: String
 
     @BeforeAll
     fun junit5BeforeAll() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
         Configuration.browser = "firefox"
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
         Configuration.browserCapabilities.setCapability("enableVNC", true)
@@ -42,7 +42,7 @@ class SelenideFireFoxUITest {
     }
 
     @Test
-    fun junit5UiFailedTest(){
+    fun junit5UiFailedTest() {
         assertTrue(false)
     }
 

@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class StandalonePetClinicTest {
+class StandaloneApiTest {
 
     lateinit var petclinicUrl: String
 
     @BeforeAll
     fun junit5Before() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
     }
 
     @Test

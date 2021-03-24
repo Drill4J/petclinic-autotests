@@ -7,14 +7,14 @@ import org.testng.annotations.BeforeClass
 import org.testng.annotations.Ignore
 import org.testng.annotations.Test
 
-class StandalonePetClinicTest {
+class StandaloneApiTest {
 
     lateinit var petclinicUrl: String
 
 
     @BeforeClass
     fun testNgBefore() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
     }
 
     @Test

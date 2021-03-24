@@ -7,13 +7,13 @@ import java.lang.Thread.sleep
 import java.net.ConnectException
 
 
-class MicroServicesPetClinicTest {
+class McrApiTest {
 
     lateinit var petclinicUrl: String
 
     @BeforeClass
     fun testNgBefore() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
         val urls = arrayListOf(
             "$petclinicUrl/api/visit/owners/2/pets/2/visits",
             "$petclinicUrl/api/customer/owners",

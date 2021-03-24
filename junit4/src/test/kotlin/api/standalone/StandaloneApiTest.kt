@@ -1,24 +1,20 @@
 package api.standalone
 
-import com.codeborne.selenide.Selenide.sleep
 import io.restassured.RestAssured.given
-import junit.framework.Assert.assertTrue
+import org.junit.Assert.assertTrue
 import org.junit.BeforeClass
 import org.junit.Ignore
 import org.junit.Test
 
-
-class StandalonePetClinicTest {
-
+class StandaloneApiTest {
 
     companion object {
-
         lateinit var petclinicUrl: String
 
         @JvmStatic
         @BeforeClass
         fun junit4Before() {
-            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
         }
     }
 
@@ -32,17 +28,15 @@ class StandalonePetClinicTest {
         given().get("$petclinicUrl/owners/4/edit").then().statusCode(200)
     }
 
-
     @Ignore
     @Test
     fun junit4IgnoredTest() {
-        given().get("$petclinicUrl/vets")
+        given().get("$petclinicUrl/vets").then().statusCode(200)
     }
 
     @Test
     fun junit4GetHomePage() {
-        given().get("$petclinicUrl/")
-        sleep(3000)
+        given().get("$petclinicUrl/").then().statusCode(200)
     }
 
     @Test

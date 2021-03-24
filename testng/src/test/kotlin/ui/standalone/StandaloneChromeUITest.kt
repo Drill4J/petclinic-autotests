@@ -10,14 +10,15 @@ import org.testng.annotations.DataProvider
 import org.testng.annotations.Test
 
 
-class SelenideChromeUITest() {
+class StandaloneChromeUITest() {
 
     lateinit var petclinicUrl: String
 
 
     @BeforeClass
     fun testNgBeforeAll() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
+        Configuration.browser = "chrome"
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
         Configuration.browserCapabilities.setCapability("enableVNC", true)
     }
@@ -28,7 +29,7 @@ class SelenideChromeUITest() {
     }
 
     @DataProvider
-    fun getData(): Array<Array<Any?>>? {
+    fun getData(): Array<Array<Any?>> {
         val data = Array(4) {
             arrayOfNulls<Any>(
                 2

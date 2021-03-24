@@ -7,8 +7,7 @@ import org.junit.Test
 import java.lang.Thread.sleep
 import java.net.ConnectException
 
-
-class MicroServicesPetClinicTest {
+class McrApiTest {
 
     companion object{
 
@@ -17,7 +16,7 @@ class MicroServicesPetClinicTest {
         @JvmStatic
         @BeforeClass
         fun junit4Before() {
-            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8080")
             val urls = arrayListOf(
                 "$petclinicUrl/api/visit/owners/2/pets/2/visits",
                 "$petclinicUrl/api/customer/owners",
@@ -47,6 +46,8 @@ class MicroServicesPetClinicTest {
             .body("{\"date\":\"2024-01-01\",\"description\":\"autotest visit\"}")
             .`when`()
             .post("$petclinicUrl/api/visit/owners/2/pets/2/visits")
+            .then()
+            .statusCode(200)
     }
 
     @Test

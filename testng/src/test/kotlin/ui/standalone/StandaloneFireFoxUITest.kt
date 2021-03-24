@@ -11,13 +11,13 @@ import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Ignore
 import org.testng.annotations.Test
 
-class SelenideFireFoxUITest {
+class StandaloneFireFoxUITest {
 
     lateinit var petclinicUrl: String
 
     @BeforeClass
     fun testNgBeforeAll() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
         Configuration.browser = "firefox"
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
         Configuration.browserCapabilities.setCapability("enableVNC", true)
@@ -44,7 +44,7 @@ class SelenideFireFoxUITest {
     }
 
     @Test
-    fun testNgUiFailedTest(){
+    fun testNgUiFailedTest() {
         assertTrue(false)
     }
 

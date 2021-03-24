@@ -8,13 +8,13 @@ import java.lang.Thread.sleep
 import java.net.ConnectException
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class MicroServicesPetClinicTest {
+class McrApiTest {
 
     lateinit var petclinicUrl: String
 
     @BeforeAll
     fun junit5Before() {
-        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8082")
+        petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8080")
         val urls = arrayListOf(
             "$petclinicUrl/api/visit/owners/2/pets/2/visits",
             "$petclinicUrl/api/customer/owners",
