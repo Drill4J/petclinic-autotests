@@ -2,14 +2,13 @@ package api.microservices
 
 import io.restassured.RestAssured.given
 import org.junit.BeforeClass
-import org.junit.Rule
 import org.junit.Test
 import java.lang.Thread.sleep
 import java.net.ConnectException
 
 class McrApiTest {
 
-    companion object{
+    companion object {
 
         lateinit var petclinicUrl: String
 
@@ -38,7 +37,6 @@ class McrApiTest {
     }
 
 
-
     @Test
     fun junit4CreateNewVisitTest() {
         given()
@@ -58,7 +56,7 @@ class McrApiTest {
             .`when`()
             .put("$petclinicUrl/api/customer/owners/1")
             .then()
-            .statusCode(200)
+            .statusCode(204)
     }
 
     @Test

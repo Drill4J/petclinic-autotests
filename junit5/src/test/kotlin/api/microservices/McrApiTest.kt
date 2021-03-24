@@ -51,7 +51,7 @@ class McrApiTest {
             .`when`()
             .put("$petclinicUrl/api/customer/owners/1")
             .then()
-            .statusCode(200)
+            .statusCode(204)
     }
 
     @Test
