@@ -41,6 +41,8 @@ class McrApiTest {
             .body("{\"date\":\"2024-01-01\",\"description\":\"autotest visit\"}")
             .`when`()
             .post("$petclinicUrl/api/visit/owners/2/pets/2/visits")
+            .then()
+            .statusCode(201)
     }
 
     @Test

@@ -15,7 +15,7 @@ class McrApiTest {
         @JvmStatic
         @BeforeClass
         fun junit4Before() {
-            petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8080")
+            petclinicUrl = System.getProperty("petclinicUrl", "http://ecse005009ba.epam.com:8080")
             val urls = arrayListOf(
                 "$petclinicUrl/api/visit/owners/2/pets/2/visits",
                 "$petclinicUrl/api/customer/owners",
@@ -45,7 +45,7 @@ class McrApiTest {
             .`when`()
             .post("$petclinicUrl/api/visit/owners/2/pets/2/visits")
             .then()
-            .statusCode(200)
+            .statusCode(201)
     }
 
     @Test
