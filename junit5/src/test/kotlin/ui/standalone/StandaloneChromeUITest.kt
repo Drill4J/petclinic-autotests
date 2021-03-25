@@ -34,7 +34,8 @@ class StandaloneChromeUITest {
     @CsvSource(
         "home page,Welcome",
         "find owners,Find Owners",
-        "veterinarians,Veterinarians"
+        "veterinarians,Veterinarians",
+        "trigger a RuntimeException to see how it is handled,Something happened..."
     )
     fun junit5CheckPageHeaderJunit5(tabTitle: String, expectedHeader: String) {
         `$x`("//a[@title='$tabTitle']").click()

@@ -3,7 +3,6 @@ package ui.standalone
 import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.Selenide.*
-import org.junit.AfterClass
 import org.junit.Assert.assertTrue
 import org.junit.BeforeClass
 import org.junit.Ignore
@@ -25,11 +24,6 @@ class StandaloneFireFoxUITest {
             Configuration.browserCapabilities.setCapability("enableVNC", true)
         }
 
-        @JvmStatic
-        @AfterClass
-        fun afterClass() {
-            closeWindow()
-        }
     }
 
     @Test
