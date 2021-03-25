@@ -25,11 +25,8 @@ allprojects {
 
     drill {
         version = System.getProperty("autotestAgentVersion") ?: "0.14.4"
-        if (System.getProperty("groupId") != null) {
-            groupId = System.getProperty("groupId")
-        } else {
-            agentId = System.getProperty("agentId") ?: "Petclinic"
-        }
+        agentId = System.getProperty("agentId") ?: null
+        groupId = System.getProperty("groupId") ?: null
         adminHost = System.getProperty("adminHost") ?: "localhost"
         adminPort = System.getProperty("adminPort") ?: 8090
         logLevel = com.epam.drill.agent.runner.LogLevels.DEBUG
