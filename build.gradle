@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'com.epam.drill.agent.runner.autotest' version '0.2.2'
+    id 'com.epam.drill.agent.runner.autotest' version '0.2.3'
     id 'org.jetbrains.kotlin.jvm' version '1.4.21'
 }
 
@@ -24,7 +24,7 @@ allprojects {
     }
 
     drill {
-        version = System.getProperty("autotestAgentVersion") ?: "0.14.4"
+        version = System.getProperty("autotestAgentVersion") ?: "0.15.8"
         agentId = System.getProperty("agentId") ?: null
         groupId = System.getProperty("groupId") ?: null
         adminHost = System.getProperty("adminHost") ?: "localhost"
