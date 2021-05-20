@@ -2,7 +2,7 @@ pluginManagement {
     repositories {
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
-        maven { url "https://drill4j.jfrog.io/artifactory/drill"}
+        maven { url "https://drill4j.jfrog.io/artifactory/drill" }
         maven { url 'https://oss.jfrog.org/artifactory/oss-release-local' }
     }
 }
@@ -11,3 +11,5 @@ rootProject.name = 'petclinic-autotests'
 include 'junit5'
 include 'junit4'
 include 'testng'
+include 'cucumber'
+

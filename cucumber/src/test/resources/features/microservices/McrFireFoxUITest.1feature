@@ -1,0 +1,8 @@
+Feature: Example standalone UI
+
+  Background: Prepare for scenario
+    Given main page of Petclinic is opened in firefox
+
+  Scenario: Find Owner
+    When user search owner by Davis
+    Then he find owner Betty Davis
