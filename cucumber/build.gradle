@@ -1,22 +1,10 @@
 dependencies {
-    testImplementation 'io.cucumber:cucumber-java:6.8.1'
-    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
+    testImplementation 'io.cucumber:cucumber-java:5.4.0'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:5.4.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
 }
 
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
-}
-
-task cucumber() {
-    dependsOn assemble, testClasses
-    doLast {
-        javaexec {
-            systemProperties = System.getProperties()
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args += ['--plugin', 'pretty', 'src/test/resources']
-        }
-    }
+test {
+    useJUnitPlatform()
+    systemProperties System.properties
 }

@@ -1,4 +1,4 @@
-package steps.standalone;
+package com.epam.drill.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

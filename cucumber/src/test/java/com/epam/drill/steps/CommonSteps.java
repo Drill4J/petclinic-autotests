@@ -1,10 +1,11 @@
-package steps.common;
+package com.epam.drill.steps;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.junit.jupiter.api.Assertions;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class CommonSteps {
 
@@ -25,6 +26,11 @@ public class CommonSteps {
         Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub";
         Configuration.browserCapabilities.setCapability("enableVNC", true);
         open(petclinicUrl);
+    }
+
+    @Then("failed assertion")
+    public void failedAssertion() {
+        Assertions.fail();
     }
 
 }
