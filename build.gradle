@@ -29,8 +29,13 @@ allprojects {
         adminHost = System.getProperty("adminHost") ?: "localhost"
         adminPort = System.getProperty("adminPort") ?: 8090
         logLevel = com.epam.drill.agent.runner.LogLevels.DEBUG
-        additionalParams = ["browserProxyAddress": "$adminHost:7777"]
+        testFramework = System.getProperty("testFramework") ?: ""
+        additionalParams =
+                ["browserProxyAddress": "$adminHost:7777",
+                 "rawFrameworkPlugins": "$testFramework"
+                ]
         logFile = file("build/drill-autotest.log")
+
     }
 
 }
