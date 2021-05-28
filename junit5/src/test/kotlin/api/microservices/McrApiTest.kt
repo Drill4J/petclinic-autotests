@@ -4,8 +4,6 @@ import io.restassured.RestAssured.given
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
-import java.lang.Thread.sleep
-import java.net.ConnectException
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class McrApiTest {
@@ -15,23 +13,6 @@ class McrApiTest {
     @BeforeAll
     fun junit5Before() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8080")
-        val urls = arrayListOf(
-            "$petclinicUrl/api/visit/owners/2/pets/2/visits",
-            "$petclinicUrl/api/customer/owners",
-            "$petclinicUrl/api/vet/vets"
-        )
-        var isMcrPetReadyForTests = false
-        while (!isMcrPetReadyForTests) {
-            urls.forEach {
-                isMcrPetReadyForTests = try {
-                    given().`when`().get(it).then().extract().response().statusCode == 200
-                } catch (e: ConnectException) {
-                    false
-                }
-                sleep(3000)
-                print("waiting for services...")
-            }
-        }
     }
 
     @Test

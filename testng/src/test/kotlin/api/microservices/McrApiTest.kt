@@ -3,8 +3,6 @@ package api.microservices
 import io.restassured.RestAssured.given
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
-import java.lang.Thread.sleep
-import java.net.ConnectException
 
 
 class McrApiTest {
@@ -14,23 +12,6 @@ class McrApiTest {
     @BeforeClass
     fun testNgBefore() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
-        val urls = arrayListOf(
-            "$petclinicUrl/api/visit/owners/2/pets/2/visits",
-            "$petclinicUrl/api/customer/owners",
-            "$petclinicUrl/api/vet/vets"
-        )
-        var isMcrPetReadyForTests = false
-        while (!isMcrPetReadyForTests) {
-            urls.forEach {
-                isMcrPetReadyForTests = try {
-                    given().`when`().get(it).then().extract().response().statusCode == 200
-                } catch (e: ConnectException) {
-                    false
-                }
-                sleep(3000)
-                print("waiting for services...")
-            }
-        }
     }
 
     @Test
