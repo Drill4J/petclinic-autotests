@@ -1,7 +1,11 @@
 def junit4Version = System.getProperty("junit4Version") ?: '+'
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: junit4Version
+    testImplementation group: 'junit', name: 'junit', {
+        version {
+            strictly junit4Version
+        }
+    }
 }
 
 test {

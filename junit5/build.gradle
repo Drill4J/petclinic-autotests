@@ -1,9 +1,21 @@
 def junit5Version = System.getProperty("junit5Version") ?: '+'
 
 dependencies {
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junit5Version
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: junit5Version
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junit5Version
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', {
+        version {
+            strictly junit5Version
+        }
+    }
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', {
+        version {
+            strictly junit5Version
+        }
+    }
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', {
+        version {
+            strictly junit5Version
+        }
+    }
 }
 
 test {

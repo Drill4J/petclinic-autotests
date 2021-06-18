@@ -1,10 +1,16 @@
 def cucumberVersion = System.getProperty("cucumberVersion") ?: '+'
-def junit4Version = System.getProperty("junit4Version") ?: '+'
 
 dependencies {
-    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: cucumberVersion
-    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: cucumberVersion
-    testImplementation group: 'junit', name: 'junit', version: junit4Version
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', {
+        version {
+            strictly cucumberVersion
+        }
+    }
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', {
+        version {
+            strictly cucumberVersion
+        }
+    }
 }
 
 test {

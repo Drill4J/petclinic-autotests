@@ -1,7 +1,11 @@
 def cucumberVersion = System.getProperty("cucumberVersion") ?: '+'
 
 dependencies {
-    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: cucumberVersion
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', {
+        version {
+            strictly cucumberVersion
+        }
+    }
 }
 
 configurations {
