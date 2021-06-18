@@ -1,0 +1,13 @@
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:5.4.0'
+    testImplementation 'io.cucumber:cucumber-testng:5.4.0'
+    testImplementation 'org.testng:testng:7.4.0'
+}
+
+test {
+    useTestNG() {
+        systemProperties System.properties
+        scanForTestClasses = false
+        testLogging.showStandardStreams = true
+    }
+}

@@ -1,0 +1,13 @@
+//def cucumberVersion = System.getProperty("cucumberVersion") ?: '+'
+def cucumberVersion = "5.4.0"
+
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:' + cucumberVersion
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties System.properties
+}
