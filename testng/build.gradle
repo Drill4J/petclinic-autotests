@@ -1,5 +1,7 @@
+def testNGVersion = System.getProperty("testNGVersion") ?: '+'
+
 dependencies {
-    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+    testImplementation group: 'org.testng', name: 'testng', version: testNGVersion
 }
 
 def suite1 = project.hasProperty("standalone")
