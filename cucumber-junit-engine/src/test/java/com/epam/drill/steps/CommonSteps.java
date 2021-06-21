@@ -3,7 +3,7 @@ package com.epam.drill.steps;
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.jupiter.api.Assertions;
+import org.hamcrest.MatcherAssert;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -30,7 +30,7 @@ public class CommonSteps {
 
     @Then("failed assertion")
     public void failedAssertion() {
-        Assertions.fail();
+        MatcherAssert.assertThat("Fail test", false);
     }
 
 }
