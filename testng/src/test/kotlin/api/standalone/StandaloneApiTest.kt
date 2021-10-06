@@ -44,4 +44,9 @@ class StandaloneApiTest {
     fun testNgFailedTest() {
         assertTrue(false)
     }
+
+    @Test
+    fun testNgShouldReturn404Status() {
+        given().get("$petclinicUrl/not/existing").then().statusCode(404)
+    }
 }

@@ -16,7 +16,8 @@ class StandaloneFireFoxUITest {
     fun junit5BeforeAll() {
         petclinicUrl = System.getProperty("petclinicUrl", "http://localhost:8087")
         Configuration.browser = "firefox"
-        Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
+        val isRemote = System.getProperty("isRemote", "true").toBoolean()
+        if (isRemote) Configuration.remote = "http://ecse005002a0.epam.com:4444/wd/hub"
         Configuration.browserCapabilities.setCapability("enableVNC", true)
     }
 

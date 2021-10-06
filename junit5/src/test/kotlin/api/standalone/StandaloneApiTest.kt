@@ -45,4 +45,9 @@ class StandaloneApiTest {
     fun junit5FailedTest() {
         assertTrue(false)
     }
+
+    @Test
+    fun junitShouldReturn404Status() {
+        given().get("$petclinicUrl/not/existing").then().statusCode(404)
+    }
 }
