@@ -4,6 +4,7 @@ pluginManagement {
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://drill4j.jfrog.io/artifactory/drill" }
         maven { url 'https://oss.jfrog.org/artifactory/oss-release-local' }
+        maven { url 'https://oss.sonatype.org/service/local/repo_groups/staging/content' }
     }
 }
 rootProject.name = 'petclinic-autotests'

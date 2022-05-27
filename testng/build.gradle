@@ -1,4 +1,4 @@
-def testNGVersion = System.getProperty("testNGVersion") ?: '+'
+def testNGVersion = System.getProperty("testNGVersion") ?: '6.14.3'
 
 dependencies {
     testImplementation group: 'org.testng', name: 'testng', {
